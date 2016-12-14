@@ -57,15 +57,7 @@ RUN apt-get update && \
     mv android-sdk-linux $ANDROID_HOME && \
 
     # Install Android components
-    echo y | $ANDROID_HOME/tools/android --silent update sdk --no-ui --all --filter android-16 && \
-    echo y | $ANDROID_HOME/tools/android --silent update sdk --no-ui --all --filter android-17 && \
-    echo y | $ANDROID_HOME/tools/android --silent update sdk --no-ui --all --filter android-18 && \
-    echo y | $ANDROID_HOME/tools/android --silent update sdk --no-ui --all --filter android-19 && \
-    echo y | $ANDROID_HOME/tools/android --silent update sdk --no-ui --all --filter android-20 && \
-    echo y | $ANDROID_HOME/tools/android --silent update sdk --no-ui --all --filter android-21 && \
-    echo y | $ANDROID_HOME/tools/android --silent update sdk --no-ui --all --filter android-22 && \
-    echo y | $ANDROID_HOME/tools/android --silent update sdk --no-ui --all --filter android-23 && \
-    echo y | $ANDROID_HOME/tools/android --silent update sdk --no-ui --all --filter android-24 && \
+    echo y | $ANDROID_HOME/tools/android --silent update sdk --no-ui --all --filter android-25 && \
     echo y | $ANDROID_HOME/tools/android --silent update sdk --no-ui --all --filter platform-tools && \
     echo y | $ANDROID_HOME/tools/android --silent update sdk --no-ui --all --filter build-tools-${ANDROID_BUILD_TOOLS_VERSION} && \
     echo y | $ANDROID_HOME/tools/android --silent update sdk --no-ui --all --filter extra-android-m2repository && \
