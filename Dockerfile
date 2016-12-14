@@ -52,7 +52,8 @@ RUN apt-get update && \
     apt-get clean && \
     wget -q -O android-sdk.zip https://dl.google.com/android/repository/tools_r${ANDROID_SDK_VERSION}-linux.zip  && \
     unzip android-sdk.zip && \
-    rm -fr $ANDROID_HOME android-sdk.zip && \
+    rm -fr android-sdk.zip && \
+    mkdir $ANDROID_HOME && \
     mv tools $ANDROID_HOME && \
 
     # Install Android components
