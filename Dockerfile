@@ -45,18 +45,18 @@ RUN apt-get update && \
         software-properties-common \
         unzip \
         zip \
-        zlib1g-dev
-RUN apt-add-repository -y ppa:openjdk-r/ppa && \
-    apt-get install -y openjdk-8-jdk
-RUN rm -rf /var/lib/apt/lists/ && \
-    apt-get clean
-RUN wget -q -O android-sdk.zip https://dl.google.com/android/repository/tools_r${ANDROID_SDK_VERSION}-linux.zip  && \
+        zlib1g-dev && \
+    apt-add-repository -y ppa:openjdk-r/ppa && \
+    apt-get install -y openjdk-8-jdk && \
+    rm -rf /var/lib/apt/lists/ && \
+    apt-get clean && \
+    wget -q -O android-sdk.zip https://dl.google.com/android/repository/tools_r${ANDROID_SDK_VERSION}-linux.zip  && \
     unzip android-sdk.zip && \
     rm -fr $ANDROID_HOME android-sdk.zip && \
-    mv tools $ANDROID_HOME
+    mv tools $ANDROID_HOME && \
 
-# Install Android components
-RUN echo y | $ANDROID_HOME/tools/android --silent update sdk --no-ui --all --filter android-25 && \
+    # Install Android components
+    echo y | $ANDROID_HOME/tools/android --silent update sdk --no-ui --all --filter android-25 && \
     echo y | $ANDROID_HOME/tools/android --silent update sdk --no-ui --all --filter platform-tools && \
     echo y | $ANDROID_HOME/tools/android --silent update sdk --no-ui --all --filter build-tools-${ANDROID_BUILD_TOOLS_VERSION} && \
     echo y | $ANDROID_HOME/tools/android --silent update sdk --no-ui --all --filter extra-android-m2repository && \
